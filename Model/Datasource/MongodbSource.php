@@ -102,6 +102,7 @@ class MongodbSource extends DboSource {
 		'login'		=> '',
 		'password'	=> '',
 		'replicaset'	=> '',
+		'authenticationDatabase'	=> '',
 	);
 
 /**
@@ -246,7 +247,11 @@ class MongodbSource extends DboSource {
 			$hostname = $config['host'] . ':' . $config['port'];
 
 			if(!empty($config['login'])){
-				$host .= $config['login'] .':'. $config['password'] . '@' . $hostname . '/'. $config['database'];
+				if (!empty($config['authenticationDatabase'])) {
+					$host .= $config['login'] .':'. $config['password'] . '@' . $hostname . '/'. $config['authenticationDatabase'];
+				} else {
+					$host .= $config['login'] .':'. $config['password'] . '@' . $hostname . '/'. $config['database'];
+				}
 			} else {
 				$host .= $hostname;
 			}

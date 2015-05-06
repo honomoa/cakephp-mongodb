@@ -50,6 +50,7 @@ To use this DB driver, install (obviously) and define a db source such as follow
 			/* optional auth fields
 			'login' => 'mongo',	
 			'password' => 'awesomeness',
+			'authenticationDatabase' => 'admin',
 			'replicaset' => array('host' => 'mongodb://hoge:hogehoge@localhost:27021,localhost:27022/blog', 
 			                      'options' => array('replicaSet' => 'myRepl')
 					     ),
@@ -89,6 +90,7 @@ Andy Dawson ([AD7six](http://twitter.com/AD7six))
 
 [tkyk](http://github.com/tkyk/) : Fix bug, Add some function.
 
+[Moa](http://github.com/honomoa/) : Add mongodb 2.4 authenticationDatabase parameter.
 
 ## Reference
 Reference code, Thank you!
